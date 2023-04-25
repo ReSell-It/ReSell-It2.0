@@ -15,9 +15,11 @@ import '../models/userModel.dart';
 class SellItem extends StatefulWidget {
   final User? firebaseUser;
 
+  const SellItem({super.key, this.firebaseUser});
+
   // final String? uid;
 
-  SellItem({Key? key, required this.firebaseUser});
+ 
 
   @override
   State<SellItem> createState() => _SellItemState();
@@ -37,7 +39,7 @@ class _SellItemState extends State<SellItem> {
   final ImagePicker _picker = ImagePicker();
   String imageUrl = '';
 
-  List<String> _categoryList = <String>[
+  final List<String> _categoryList = <String>[
     "Mobile",
     "Stationary",
     "Grocery",
@@ -45,7 +47,7 @@ class _SellItemState extends State<SellItem> {
   ];
   String _category = 'Mobile';
 
-  List<String> _location = <String>["Kathmandu", "Lalitpur", "Bhaktapur"];
+  final List<String> _location = <String>["Kathmandu", "Lalitpur", "Bhaktapur"];
   String _choosedLocation = 'Kathmandu';
 
   @override
@@ -53,7 +55,7 @@ class _SellItemState extends State<SellItem> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Item Details',
+          title: const Text('Item Details',
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -62,7 +64,7 @@ class _SellItemState extends State<SellItem> {
           elevation: 0,
           leading: IconButton(
             color: Colors.black,
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -89,37 +91,37 @@ class _SellItemState extends State<SellItem> {
                         Row(
                           children: [
                             Container(
-                              child: _image == null
-                                  ? Icon(Icons.cancel)
-                                  : Image(
-                                      image: XFileImage(_image!),
-                                      height: 300,
-                                      width: 300,
-                                    ),
                               height: 90,
                               width: 95,
                               decoration: BoxDecoration(
                                   color: Colors.grey[400],
                                   borderRadius: BorderRadius.circular(10)),
+                              child: _image == null
+                                  ? const Icon(Icons.cancel)
+                                  : Image(
+                                      image: XFileImage(_image!),
+                                      height: 300,
+                                      width: 300,
+                                    ),
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Container(
-                              child: IconButton(
-                                  onPressed: () {
-                                    _showImageSourceDialog();
-                                  },
-                                  icon: Icon(Icons.add)),
                               height: 95,
                               width: 95,
                               decoration: BoxDecoration(
                                   color: Colors.grey[400],
                                   borderRadius: BorderRadius.circular(10)),
+                              child: IconButton(
+                                  onPressed: () {
+                                    _showImageSourceDialog();
+                                  },
+                                  icon: const Icon(Icons.add)),
                             ),
                           ],
                         ),
-                        SizedBox(height: 9),
+                        const SizedBox(height: 9),
                         _image == null
-                            ? Text('')
+                            ? const Text('')
                             : InkWell(
                                 onTap: () async {
                                   if (_image == null) return;
@@ -150,18 +152,18 @@ class _SellItemState extends State<SellItem> {
                                     //!then update the user model in the database
                                   } catch (error) {}
                                 },
-                                child: Text('Click here to upload image')),
+                                child: const Text('Click here to upload image')),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                Text('Item name*',
+                const SizedBox(height: 16),
+                const Text('Item name*',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 50,
                   width: double.infinity,
@@ -173,17 +175,17 @@ class _SellItemState extends State<SellItem> {
                     child: TextField(
                       controller: itemName,
                       decoration:
-                          InputDecoration.collapsed(hintText: 'Item name'),
+                          const InputDecoration.collapsed(hintText: 'Item name'),
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                Text('Category*',
+                const SizedBox(height: 16),
+                const Text('Category*',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 50,
                   width: double.infinity,
@@ -198,8 +200,8 @@ class _SellItemState extends State<SellItem> {
                           value: _category,
                           items: _categoryList
                               .map((e) => DropdownMenuItem(
-                                    child: Text(e),
                                     value: e,
+                                    child: Text(e),
                                   ))
                               .toList(),
                           onChanged: (val) {
@@ -210,13 +212,13 @@ class _SellItemState extends State<SellItem> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                Text('Description',
+                const SizedBox(height: 16),
+                const Text('Description',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 95,
                   width: double.infinity,
@@ -228,17 +230,17 @@ class _SellItemState extends State<SellItem> {
                     child: TextField(
                       controller: description,
                       decoration:
-                          InputDecoration.collapsed(hintText: 'Description'),
+                          const InputDecoration.collapsed(hintText: 'Description'),
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                Text('Condition*',
+                const SizedBox(height: 16),
+                const Text('Condition*',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     TextButton(
@@ -266,7 +268,7 @@ class _SellItemState extends State<SellItem> {
                             ),
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     TextButton(
@@ -296,13 +298,13 @@ class _SellItemState extends State<SellItem> {
                         )),
                   ],
                 ),
-                SizedBox(height: 16),
-                Text('Price*',
+                const SizedBox(height: 16),
+                const Text('Price*',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 50,
                   width: double.infinity,
@@ -313,17 +315,17 @@ class _SellItemState extends State<SellItem> {
                     padding: const EdgeInsets.all(16.0),
                     child: TextField(
                       controller: price,
-                      decoration: InputDecoration.collapsed(hintText: 'Price'),
+                      decoration: const InputDecoration.collapsed(hintText: 'Price'),
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
-                Text('Location*',
+                const SizedBox(height: 16),
+                const Text('Location*',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     )),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   height: 50,
                   width: double.infinity,
@@ -338,8 +340,8 @@ class _SellItemState extends State<SellItem> {
                           value: _choosedLocation,
                           items: _location
                               .map((e) => DropdownMenuItem(
-                                    child: Text(e),
                                     value: e,
+                                    child: Text(e),
                                   ))
                               .toList(),
                           onChanged: (val) {
@@ -350,7 +352,7 @@ class _SellItemState extends State<SellItem> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Container(
                   height: 50,
                   width: double.infinity,
@@ -406,21 +408,21 @@ class _SellItemState extends State<SellItem> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Select Image Source'),
+          title: const Text('Select Image Source'),
           content: SingleChildScrollView(
             child: ListBody(
               children: [
                 ListTile(
-                  leading: Icon(Icons.camera_alt),
-                  title: Text('Camera'),
+                  leading: const Icon(Icons.camera_alt),
+                  title: const Text('Camera'),
                   onTap: () {
                     _openCamera();
                   },
                 ),
-                Padding(padding: EdgeInsets.all(8.0)),
+                const Padding(padding: EdgeInsets.all(8.0)),
                 ListTile(
-                  leading: Icon(Icons.photo_library),
-                  title: Text('Gallery'),
+                  leading: const Icon(Icons.photo_library),
+                  title: const Text('Gallery'),
                   onTap: () {
                     _openGallery();
                   },

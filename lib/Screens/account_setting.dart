@@ -4,17 +4,13 @@ import 'package:app_1/Screens/MySellings.dart';
 
 import 'MyOrders.dart';
 import 'package:app_1/Screens/edit_information.dart';
-import 'package:app_1/Screens/homepage.dart';
 import 'package:app_1/models/nav.dart';
 import 'package:app_1/models/uiHelper.dart';
 import 'package:app_1/models/userModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '/authentication/authentication.dart';
-import '/models/profile.dart';
-import '/services/database_service.dart';
 import '/Screens/login.dart';
 import 'sell_item.dart';
 
