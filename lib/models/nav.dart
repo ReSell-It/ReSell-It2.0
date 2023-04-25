@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:app_1/Screens/chatHome.dart';
+import 'package:app_1/Screens/donation.dart';
 import 'package:app_1/Screens/homepage.dart';
 import 'package:app_1/Screens/sell_item.dart';
 import 'package:app_1/models/userModel.dart';
@@ -12,6 +13,8 @@ import 'firebaseHelper.dart';
 class NavBar extends StatelessWidget {
   final User? currentUser = FirebaseAuth.instance.currentUser;
   String? uid = FirebaseAuth.instance.currentUser!.uid;
+
+  NavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +80,10 @@ class NavBar extends StatelessWidget {
             ),
             IconButton(
               icon: const Icon(Icons.clean_hands_rounded),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => Donation(firebaseUser: currentUser,))));
+              },
             ),
           ],
         ));
