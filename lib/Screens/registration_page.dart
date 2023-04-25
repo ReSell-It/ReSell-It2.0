@@ -5,15 +5,12 @@ import 'package:app_1/models/uiHelper.dart';
 import 'package:app_1/models/userModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import '../firebase_options.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '/Screens/login.dart';
 import '/consts/consts.dart';
 import '/consts/strings.dart';
 import '/widgets/registrationHeader.dart';
-import '/widgets/myTextField.dart';
 
 //TODO : Improve the Design
 // TODO : Solve bottom Overflow bug. Occurance: while trying to give inputs in textFields
@@ -134,7 +131,7 @@ class RegisterPage extends StatelessWidget {
                                 validator: (value) {
                                   if (value!.isEmpty ||
                                       !RegExp(r'^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                          .hasMatch(value!)) {
+                                          .hasMatch(value)) {
                                     return 'Please Enter Valid mail';
                                   }
                                   return null;
@@ -149,7 +146,7 @@ class RegisterPage extends StatelessWidget {
                               TextFormField(
                                 validator: (number) {
                                   if (number!.isEmpty ||
-                                      !RegExp(r'^[0-9]+$').hasMatch(number!)) {
+                                      !RegExp(r'^[0-9]+$').hasMatch(number)) {
                                     return 'Please Enter Valid Number';
                                   }
                                   return null;

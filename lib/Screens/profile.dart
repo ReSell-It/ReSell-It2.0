@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import '../models/ProductDetails.dart';
 import '../models/nav.dart';
 import '../widgets/tile.dart';
-import 'homepage.dart';
 
 class Profile extends StatefulWidget {
   UserModel user;
@@ -35,7 +34,7 @@ class _ProfileState extends State<Profile> {
     List<Products> products = [];
     QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('Products')
-        .where('ProductSellerID', isEqualTo: widget.user!.uid)
+        .where('ProductSellerID', isEqualTo: widget.user.uid)
         .get();
     for (var element in snapshot.docs) {
       products.add(Products.fromMap(element.data() as Map<String, dynamic>));
