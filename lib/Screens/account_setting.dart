@@ -166,6 +166,7 @@ class _AccountSettingState extends State<AccountSetting> {
   // AccountSetting({Key? key, required this.email}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    setState(() {});
     return Scaffold(
         bottomNavigationBar: BottomAppBar(
           child: NavBar(),

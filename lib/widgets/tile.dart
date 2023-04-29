@@ -113,28 +113,28 @@ Tile(context,
                           UserCredential? credential;
                           User firebaseUser = credential!.user!;
                           //TODO::FROM HERE
-                          UserModel? targetUserModel =
-                              await FirebaseHelper.getUserModelById(targetUser);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) {
-                              return ChatPage(
-                                // chatRoom: widget.chatRoomModel,
-                                firebaseUser: firebaseUser,
-                                userModel: user,
-                                targetUser: targetUserModel!,
-                                chatRoom: ChatRoomModel(
-                                  chatRoomId: '12345678',
-                                  participants: {
-                                    user.uid!: 'fyughsDAJKFWHEGJDSBADJF',
-                                    targetUserModel.uid!:
-                                        'wZt6BsjNEASPmb78Gd1gX2b23JE2'
-                                  },
-                                  lastMessage: 'Hello',
-                                ),
-                              );
-                            }),
-                          );
+                          // UserModel? targetUserModel =
+                          //     await FirebaseHelper.getUserModelById(targetUser);
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(builder: (context) {
+                          //     return ChatPage(
+                          //       // chatRoom: widget.chatRoomModel,
+                          //       firebaseUser: firebaseUser,
+                          //       userModel: user,
+                          //       targetUser: targetUserModel!,
+                          //       chatRoom: ChatRoomModel(
+                          //         chatRoomId: '12345678',
+                          //         participants: {
+                          //           user.uid!: 'fyughsDAJKFWHEGJDSBADJF',
+                          //           targetUserModel.uid!:
+                          //               'wZt6BsjNEASPmb78Gd1gX2b23JE2'
+                          //         },
+                          //         lastMessage: 'Hello',
+                          //       ),
+                          //     );
+                          //   }),
+                          // );
                           print('MESSAGE');
                         },
                         icon: Icon(
